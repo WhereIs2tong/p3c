@@ -39,7 +39,9 @@ import net.sourceforge.pmd.lang.java.ast.ASTVariableDeclaratorId;
 public class LowerCamelCaseVariableNamingRule extends AbstractAliRule {
 
     private static final String MESSAGE_KEY_PREFIX = "java.naming.LowerCamelCaseVariableNamingRule.violation.msg";
-    private Pattern pattern = Pattern.compile("^[a-z][a-z0-9]*([A-Z][a-z0-9]+)*(DO|DTO|VO|DAO|BO|DOList|DTOList|VOList|DAOList|BOList|X|Y|Z|UDF|UDAF|[A-Z])?$");
+    private Pattern pattern = Pattern.compile("^[a-z][a-z0-9]*" +
+            "(([A-Z][a-z0-9]+)|SI|CE|GE|JPM|FY|PM|PE|AME|ME|YTD|OA|ISSN|URL|JE|JER|JPA|SIP|PCE|GeOV|GeCV)*" +
+            "(DO|EO|DTO|VO|DAO|BO|DOList|DTOList|VOList|DAOList|BOList|X|Y|Z|UDF|UDAF|[A-Z])?$");
 
     @Override
     public Object visit(final ASTVariableDeclaratorId node, Object data) {
